@@ -23,13 +23,14 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('123456789'),
             'point' => 10000,
         ]);
-/*
+
         Admin::create([
             'name' => 'Admin',
             'username' => 'Admin',
             'email' => 'admin@gmail.com',
             'password' => bcrypt('123456789'),
         ]);
+        /*
          Skripsi::create([
             'judul' => 'Analisis pengaruh Chatgpt',
             'nama' => 'Dimas Rio Ardianto',

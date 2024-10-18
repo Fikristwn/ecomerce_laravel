@@ -41,6 +41,38 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                    <div class="card card-statistic-1">
+                        <div class="card-icon bg-warning">
+                            <i class="fas fa-percentage"></i>
+                        </div>
+                        <div class="card-wrap">
+                            <div class="card-header">
+                                <h4>Diskon</h4>
+                            </div>
+                            <div class="card-body">
+                                {{ $flashsales }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                    <div class="card card-statistic-1">
+                        <div class="card-icon bg-">
+                            <i class="fas fa-truck"></i>
+
+                        </div>
+                        <div class="card-wrap">
+                            <div class="card-header">
+                                <h4>Diskon</h4>
+                            </div>
+                            <div class="card-body">
+                                {{ $distributors }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </div>

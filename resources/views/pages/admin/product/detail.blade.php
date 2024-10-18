@@ -1,4 +1,5 @@
 @extends('layouts.user.main')
+@section('title', 'Admin Product')
 @section('content')
 <!-- start banner Area -->
 <section class="banner-area">
