@@ -33,7 +33,12 @@
                                 <td>
                                     <a href="{{ route('product.detail', $item->id) }}" class="badge badge-info">Detail</a>
                                     <a href="{{ route('product.edit', $item->id) }}"class="badge badge-warning">Edit</a>
-                                    <a href="{{ route('product.delete', $item->id) }}" class="badge badge-danger">Hapus</a>
+                                    <form action="{{ route('product.delete', $item->id) }}" method="POST" class="d-inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="badge badge-danger"
+                                            onclick="return confirm('Apakah Anda yakin ingin menghapus Flash Sale ini?')">Hapus</button>
+                                    </form>
                                 </td>
                             </tr>
                         @empty

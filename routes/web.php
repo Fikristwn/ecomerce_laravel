@@ -58,8 +58,9 @@ Route::group(['middleware' => 'admin'], function () {
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/user', [UserController::class, 'index'])->name('user.dashboard');
     Route::get('/user-logout', [AuthController::class, 'user_logout'])->name('user.logout');
-   
+    Route::get('/user/flashsale/detail/{id}', [USerController::class, 'detail_flashsale'])->name('user.detail2.flashsale');
     Route::get('/user/product/detail/{id}', [UserController::class, 'detail_product'])->name('user.detail.product');
     Route::get('/product/purchase/{productId}/{userId}', [UserController::class, 'purchase']);
+    Route::get('/flashsale/pur/{flashsaleId}/{userId}', [UserController::class, 'pur']);
 });
 

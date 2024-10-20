@@ -63,13 +63,16 @@ CSS ============================================= -->
                             </div>
                             <div class="col-md-12 form-group">
                                 <input type="password" class="form-control" id="password" name="password"
-                                    placeholder="Password" onfocus="this.placeholder =
-''"
+                                    placeholder="Password" onfocus="this.placeholder =''"
                                     onblur="this.placeholder = 'Password'">
                             </div>
                             <div class="col-md-12 form-group">
-                                <button type="submit" value="submit" class="primary-
-btn">Create Account</button>
+                                <input type="number" class="form-control" id="point" name="point"
+                                    placeholder="point" onfocus="this.placeholder =''"
+                                    onblur="this.placeholder = 'point'">
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <button type="submit" value="submit" class="primary-btn">Create Account</button>
                             </div>
                         </form>
                     </div>

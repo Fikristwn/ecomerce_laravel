@@ -22,6 +22,13 @@ class DistributorController extends Controller
         return view('pages.admin.distributor.create');
     }
 
+    public function detail($id)
+    {
+        $distributor = Distributor::findOrFail($id);
+
+        return view('pages.admin.distributor.detail', compact('distributor'));
+    }
+
     // Menyimpan data distributor baru
     public function store(Request $request)
     {

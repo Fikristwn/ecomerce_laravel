@@ -56,6 +56,7 @@ class AuthController extends Controller
             'name' => 'required',
             'email' => 'required|email:dns',
             'password' => 'required|min:8|max:8',
+            'point' => 'required',
         ]);
     
         // Jika validasi gagal, tampilkan pesan error dan redirect kembali

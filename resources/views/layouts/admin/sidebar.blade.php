@@ -1,7 +1,7 @@
 <div class="main-sidebar sidebar-style-2">
   <aside id="sidebar-wrapper">
     <div class="sidebar-brand">
-      <a href="#">Teknik Informatika | RPL</a>
+      <a href="#">M FIkri Setiawan</a>
     </div>
     <div class="sidebar-brand sidebar-brand-sm">
       <a href="#">RPL</a>
@@ -16,13 +16,13 @@
       <li class="{{ Request::is('products') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('admin.product') }}"><i class="fas fa-box"></i>
         <span>Produk</span></a></li>
-        <li class="{{ Request::is('flashsale') ? 'active' : '' }}">
+        
+        <li class="{{ Request::is('flashsales') ? 'active' : '' }}">
           <a class="nav-link" href="{{ route('admin.flashsale') }}"><i class="fas fa-percentage"></i>
+          <span>FlashSale</span></a></li>
 
-          <span>Diskon</span></a></li>
            <li class="{{ Request::is('distributor*') ? 'active' : '' }}">
-          <a class="nav-link" href="{{ route('admin.distributor') }}"><i class="fas fa-briefcase"></i>
-
+          <a class="nav-link" href="{{ route('admin.distributor') }}"><i class="fas fa-truck"></i>
           <span>Distributor</span></a></li>
     </ul>
   </aside>

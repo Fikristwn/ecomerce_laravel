@@ -1,101 +1,42 @@
-@extends('layouts.user.main')
-@section('title', 'Admin Product')
+@extends('layouts.admin.main')
+
+@section('title', 'Detail Produk')
+
 @section('content')
-<!-- start banner Area -->
-<section class="banner-area">
-    <div class="container">
-        <div class="row fullscreen align-items-center justify-content-start">
-            <div class="col-lg-12">
-                <div class="">
-                    <!-- single-slide -->
-                    <div class="row">
-                        <div class="col-lg-5 col-md-6">
-                            <div class="banner-content">
-                                <h1>Nike New <br>Collection!</h1>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                                    ad minim veniam, quis nostrud exercitation.</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-7">
-                            <div class="banner-img">
-                                <img class="img-fluid" src="{{asset('assets/templates/user/img/banner/banner-img.png') }}" alt="">
-                            </div>
-                        </div>
+<div class="main-content">
+    <section class="section">
+        <div class="section-header">
+            <h1>Detail Produk</h1>
+            <div class="section-header-breadcrumb">
+                <div class="breadcrumb-item active"><a href="{{ route('admin.dashboard') }}">Dashboard</a></div>
+                <div class="breadcrumb-item"><a href="{{ route('admin.product') }}">Produk</a></div>
+                <div class="breadcrumb-item">Detail</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h4>Detail Produk: {{ $product->name }}</h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="{{ asset('images/' . $product->image) }}" alt="{{ $product->name }}" class="img-fluid rounded">
+                    </div>
+                    <div class="col-md-6">
+                        <h4>{{ $product->name }}</h4>
+                        <p><strong>Harga: </strong>Rp{{ number_format($product->price, 2) }}</p>
+                        <p><strong>Kategori: </strong>{{ $product->category }}</p>
+                        <p><strong>Deskripsi: </strong>{{ $product->description }}</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
-<!-- End banner Area -->
-<!-- start product Area -->
-<section class="section_gap">
-    <!-- single product slide -->>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-6 text-center">
-                <div class="section-title">
-                    <h1>Latest Products</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit, sed do eiusmod tempor incididunt ut labore et
-                        dolore
-                        magna aliqua.</p>
-                </div>
+            <div class="card-footer text-right">
+                <a href="{{ route('product.edit', $product->id) }}" class="btn btn-warning">Edit</a>
+                <a href="{{ route('product.delete', $product->id) }}" class="btn btn-danger" data-confirm-delete="true">Hapus</a>
+                <a href="{{ route('admin.product') }}" class="btn btn-secondary">Kembali</a>
             </div>
         </div>
-        <div class="row">
-            <!-- single product -->
-            @forelse ($products as $item)
-                        <div class="col-lg-3 col-md-6">
-                            <div class="single-product">
-                                <img class="img-fluid" src="{{ asset('images/'. $item->image) }}" alt="">
-                                <div class="product-details">
-                                    <h6>{{ $item->name }}</h6>
-                                    <div class="price">
-                                        <h6>Harga: {{ $item->price }} Points</h6>
-                                    </div>
-                                    <div class="prd-bottom">
-                                        <a class="social-info" href="javascript:void(0);"
-                                            onclick="confirmPurchase('{{ $item->id }}', '{{ Auth::user()->id }}')">
-                                            <span class="ti-bag"></span>
-                                            <p class="hover-text">Beli</p>
-                                        </a>
-                                        <a href="{{ route('user.detail.product',$item->id) }}" class="social-info">
-                                            <span class="lnr lnr-move"></span>
-                                            <p class="hover-text">Detail</p>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-            @empty
-                <div class="col-lg-12 col-md-12">
-                    <div class="single-product">
-                        <h3 class="text-center">Tidak ada produk</h3>
-                    </div>
-                </div>
-            @endforelse
-        </div>
-    </div>
-</section>
-<!-- end product Area -->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-    function confirmPurchase(productId, userId) {
-        Swal.fire({
-            title: 'Apakah Anda yakin?',
-            text: "Anda akan membeli produk ini!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Ya, Beli!',
-            cancelButtonText: 'Batal'}).then((result) => {
-            if (result.isConfirmed) {
-                window.location.href = '/product/purchase/' + productId+ '/' + userId;
-            }
-        });
-    }
-</script>
+    </section>
+</div>
 @endsection

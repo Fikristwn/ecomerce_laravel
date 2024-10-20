@@ -1,0 +1,9 @@
+.flash-sale-timer {
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 5px;
+    background-color: #343a40;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}

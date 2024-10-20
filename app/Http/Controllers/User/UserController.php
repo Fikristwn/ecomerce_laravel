@@ -27,6 +27,14 @@ class UserController extends Controller
         return view('pages.user.detail', compact('product'));
     }
 
+    public function detail_flashsale($id)
+    {
+        $flashsale = FlashSale::findOrFail($id);
+
+        return view('pages.user.detail2', compact('flashsale'));
+    }
+
+
     public function purchase($productId, $userId)
     {
         $product = Product::findOrFail($productId);
@@ -34,6 +42,26 @@ class UserController extends Controller
 
         if($user->point > $product->price) {
             $totalPoints = $user->point - $product->price;
+
+            $user->update([
+                'point' => $totalPoints,
+            ]);
+
+            Alert::success('Berhasil!', 'Produk Berhasil dibeli');
+            return redirect()->back();
+        } else {
+            Alert::error('Gagal!', 'Point anda tidak cukup');
+            return redirect()->back();
+        }
+    }
+
+    public function pur($flashsaleId, $userId)
+    {
+        $flashsale = FlashSale::findOrFail($flashsaleId);
+        $user = User::findOrFail($userId);
+
+        if($user->point > $flashsale->discount_price) {
+            $totalPoints = $user->point - $flashsale->discount_price;
 
             $user->update([
                 'point' => $totalPoints,

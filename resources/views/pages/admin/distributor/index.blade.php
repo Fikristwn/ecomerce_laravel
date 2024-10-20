@@ -36,6 +36,7 @@
                             <td>{{ $distributor->email }}</td>
                             <td>
                                 <a href="{{ route('distributor.edit', $distributor->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                                <a href="{{ route('distributor.detail', $distributor->id) }}" class="btn btn-success btn-sm">Detail</a>
                                 <form action="{{ route('distributor.delete', $distributor->id) }}" method="POST" style="display:inline-block;">
                                     @csrf
                                     @method('DELETE')
